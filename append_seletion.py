@@ -90,8 +90,8 @@ class AppendSeletion(sublime_plugin.TextCommand):
       regions.append(sublime.Region(start, end))
 
     self.view.erase_regions('append_selection')
-    self.view.add_regions('append_selection', regions, 'string', '',
-      sublime.DRAW_EMPTY)
+    regFlags = Cfg.reg_flags
+    self.view.add_regions('append_selection', regions, 'string', '', regFlags)
 
   def remove_xst_selection(self,backward):
     forward = not backward
