@@ -64,7 +64,7 @@ cursors. You can also skip last cursor and go to next selection.
 }},
 ```
 
-`wordb=true` ![word boundary \b](./demo/append_sel_wordb.png) vs `false` ![word boundary \W](./demo/append_sel_wordW.png)
+`wordb=true` <img src="./demo/append_sel_wordb.png" alt="Word boundary \b" width="48"/> vs `false` <img src="./demo/append_sel_wordW.png" alt="Word boundary \W" width="48"/>
 
 ### Configure
 
