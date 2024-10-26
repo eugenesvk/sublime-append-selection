@@ -55,14 +55,43 @@ class Cfg():
 
 selection_added = False
 
+import functools
+
+def alias(aliases:dict):
+  """
+  function decorator that allows adding custom aliases to function arguments
+  @alias({'offset':['o','off']}) # use a list of aliases or a single str alias ‘...:'o'’
+  def demo(offset='default_offset', **kwargs):
+    print(offset)
+  demo(offset="arg_is_offset")	# arg_is_offset
+  demo(o="arg_is_o")          	# arg_is_o
+  demo(off="arg_is_off")      	# arg_is_off
+  demo(noals="arg_is_noals")  	# default_offset !! NO alias for ‘noals’
+  demo()                      	# default_offset
+  """
+  def decorator(func): # func.__name__=run
+    @functools.wraps(func)
+    def wrapper(self,*args,**kwargs):
+      for name, alias in aliases.items():
+        if not type(alias) is list:
+          alias = [alias]
+        for als in alias:
+          if   name not in kwargs\
+           and als      in kwargs:
+            kwargs[name] = kwargs[als] # store the value of the aliased arg to our main arg
+      return func(self,*args,**kwargs)
+    return wrapper
+  return decorator
+
 class AppendSeletion(sublime_plugin.TextCommand):
   def __init__(self, view):
     super().__init__(view)
     self.last_word = None
     self.last_wordb = None
 
+  @alias({'word':['w','ω'],'wordb':['wb','ωb'],'backward':['←'],'skip':['↷'],'repeat_last_with_skip':['🔁','🔁↷','↷🔁']})
   def run(self, edit, word:bool=True, wordb:bool=True, backward = False, skip = False,
-    repeat_last_with_skip = False):
+    repeat_last_with_skip = False, **kwargs):
 
     if repeat_last_with_skip:
       word = self.last_word
