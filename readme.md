@@ -53,7 +53,7 @@ cursors. You can also skip last cursor and go to next selection.
 
 ### Command arguments
 
-```json
+```json5
 {"keys":["alt+4"],"command":"append_seletion","args":{
  //↓argument            	↓default	, // comment
  "word"                 	:true   	, // select by word boundary
@@ -64,7 +64,7 @@ cursors. You can also skip last cursor and go to next selection.
 }},
 ```
 
-![word boundary \b][./demo/append_sel_wordb.png] vs ![word boundary \W][./demo/append_sel_wordW.png]
+`wordb=true` ![word boundary \b](./demo/append_sel_wordb.png) vs `false` ![word boundary \W](./demo/append_sel_wordW.png)
 
 ### Configure
 
