@@ -55,23 +55,27 @@ cursors. You can also skip last cursor and go to next selection.
 
 ```json5
 {"keys":["alt+4"],"command":"append_seletion","args":{
- //↓argument            	↓default	, //alias  	comment
- "word"                 	:true   	, //w ω    	select by word boundary
- "wordb"                	:true   	, //wb ωb  	word boundary \b (selects current word)or \W (old behavior), see screenshots below for comparison
- "backward"             	:false  	, //←      	select backwards
- "skip"                 	:false  	, //↷      	skip/move current selection (deselect it) instead of appending to it (previous selections remain)
- "repeat_last_with_skip"	:false  	, //🔁 🔁↷ ↷🔁	replaces the word/wordb/backward/skip arguments with those of the last invoked command
+ //↓argument            	↓default   	, //alias  	comment
+ "word"                 	:true      	, //w ω    	select by word boundary
+ "wordb"                	:true      	, //wb ωb  	word boundary \b (selects current word)or \W (old behavior), see screenshots below for comparison
+ "backward"             	:false     	, //←      	select backwards
+ "skip"                 	:false     	, //↷      	skip/move current selection (deselect it) instead of appending to it (previous selections remain)
+ "repeat_last_with_skip"	:false     	, //🔁 🔁↷ ↷🔁	replaces the word/wordb/backward/skip arguments with those of the last invoked command
+ "show"                 	:""        	, //       	move viewport to show the newly selected text, accepts a list of strings or a space-separated string of extra arguments:
+ //                     	 nosurround	           	doesn't show the surrounding context around the location
+ //                     	 noanimate 	           	doesn't animate movements
+ //                     	 left      	           	keep the view to the left (if horizontal scrolling is possible)
 }},
 ```
 
-`wordb=true` <img src="./demo/append_sel_wordb.png" alt="Word boundary \b" width="48"/> vs `false` <img src="./demo/append_sel_wordW.png" alt="Word boundary \W" width="48"/> after invoking a single `append_selection` command with cursor at the beginning of line 2
+`wordb=true` <img src="./demo/append_sel_wordb.png" alt="Word boundary \b" width="48"/> vs `false` <img src="./demo/append_sel_wordW.png" alt="Word boundary \W" width="48"/> after invoking a single `append_selection` command with the cursor at the beginning of line 2<br>
 __But__ `wordb=true` can't select words with unicode symbols due to a [Sublime Text bug](https://github.com/sublimehq/sublime_text/issues/1737)
 
 ### Configure
 
-User configuration file `AppendSelection.sublime-settings`
+User configuration file `AppendSelection.sublime-settings` accepts the following options:
 
-`"reg_flags": ["DRAW_EMPTY","DRAW_NO_FILL",],` A list of v4132 [highlight flag](sublimetext.com/docs/api_reference.html#sublime.RegionFlags)
+`"reg_flags": ["DRAW_EMPTY","DRAW_NO_FILL",],` a list of v4132 [highlight flag](sublimetext.com/docs/api_reference.html#sublime.RegionFlags)
 
 ### Dependencies
 
