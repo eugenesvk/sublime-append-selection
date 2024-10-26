@@ -136,15 +136,9 @@ class AppendSeletion(sublime_plugin.TextCommand):
       sel = self.view.word(sel.b)
       if sel.empty():
         return None
-      if backward:
-        cursor = sel.end()
-      else:
-        cursor = sel.begin()
+      cursor = sel.end  () if backward else sel.begin()
     else:
-      if backward:
-        cursor = sel.begin()
-      else:
-        cursor = sel.end()
+      cursor = sel.begin() if backward else sel.end  ()
 
     selected = self.view.substr(sel)
     if backward:
