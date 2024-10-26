@@ -57,14 +57,14 @@ cursors. You can also skip last cursor and go to next selection.
 {"keys":["alt+4"],"command":"append_seletion","args":{
  //↓argument            	↓default	, // comment
  "word"                 	:true   	, // select by word boundary
- "wordb"                	:true   	, // word boundary \b or \W (old behavior), see screenshots below for comparison
+ "wordb"                	:true   	, // word boundary \b (selects current word)or \W (old behavior), see screenshots below for comparison
  "backward"             	:false  	, // select backwards
  "skip"                 	:false  	, // skip/move current selection (deselect it) instead of appending to it (previous selections remain)
  "repeat_last_with_skip"	:false  	, // replaces the word/wordb/backward/skip arguments with those of the last invoked command
 }},
 ```
 
-`wordb=true` <img src="./demo/append_sel_wordb.png" alt="Word boundary \b" width="48"/> vs `false` <img src="./demo/append_sel_wordW.png" alt="Word boundary \W" width="48"/>
+`wordb=true` <img src="./demo/append_sel_wordb.png" alt="Word boundary \b" width="48"/> vs `false` <img src="./demo/append_sel_wordW.png" alt="Word boundary \W" width="48"/> after invoking a single `append_selection` command with cursor at the beginning of line 2
 
 ### Configure
 
