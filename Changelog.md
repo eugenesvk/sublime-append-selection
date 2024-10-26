@@ -22,5 +22,15 @@ All notable changes to this project will be documented in this file
   <!-- + :lock:  -->
   <!-- vulnerabilities -->
 
+- __Added__
+  + ✨ jump to the latest selected word instead of silently going offscreen (with extra options to show surrounding context/animate/keep left)
+  + ✨ shorter argument aliases like `w` instead of `word`
+  + ✨ option to use `\b` for word boundaries matching the default Sublime Text behavior (also selects current word)
+  + ✨ user configuration of highlight style to match default outline and make it configurable
+- __Changed__
+  +  highlight style to outline only
+- __Fixed__
+  + 🐞 skipping while going in reverse direction moves selection [src](https://github.com/shagabutdinov/sublime-append-selection/issues/1)
+
 [0.0.0]: https://github.com/eugenesvk/sublime-append-selection/releases/tag/0.0.0
 ## [0.0.0]
