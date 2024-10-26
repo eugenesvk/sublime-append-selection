@@ -1,0 +1,3 @@
+{
+"reg_flags": ["DRAW_EMPTY","DRAW_NO_FILL",], // outline. Supports v4132 of sublimetext.com/docs/api_reference.html#sublime.RegionFlags
+}
