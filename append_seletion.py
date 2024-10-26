@@ -104,9 +104,9 @@ class AppendSeletion(sublime_plugin.TextCommand):
     text = self.view.substr(region)
 
     if word:
-      matches = re.finditer(r'\W(' + re.escape(selected) + r')\W', text)
+      matches = re.finditer(fr'\W({re.escape(selected)})\W', text)
     else:
-      matches = re.finditer(r'('   + re.escape(selected) + r')'  , text)
+      matches = re.finditer(  fr'({re.escape(selected)})'  , text)
 
     if backward:
       matches = reversed(list(matches))
