@@ -6,6 +6,18 @@ import logging
 DEFAULT_LOG_LEVEL = logging.WARNING
 _log = logging.getLogger(__name__) # AppendSelection.append_seletion
 _log.setLevel(DEFAULT_LOG_LEVEL)
+
+plugin_cfg_file = 'SelectionAppend.sublime-settings'
+
+def plugin_loaded():
+  global Cfg, subl_set
+
+  subl_set = sublime.load_settings(plugin_cfg_file)
+  Cfg.load();
+
+  subl_set.clear_on_change('SelectionAppend')
+  subl_set.add_on_change  ('SelectionAppend', lambda: Cfg.load())
+
 selection_added = False
 
 class AppendSeletion(sublime_plugin.TextCommand):
