@@ -71,13 +71,13 @@ class AppendSeletion(sublime_plugin.TextCommand):
         continue
       old.append(sel)
 
-    self.view.sel().clear()
+    self  .view.sel().clear()
     for sel in old:
       self.view.sel().add(sel)
 
   def _get_next_selection(self, sels, word, backward):
     if backward:
-      sel = sels[0]
+      sel = sels[ 0]
     else:
       sel = sels[-1]
 
@@ -106,7 +106,7 @@ class AppendSeletion(sublime_plugin.TextCommand):
     if word:
       matches = re.finditer(r'\W(' + re.escape(selected) + r')\W', text)
     else:
-      matches = re.finditer(r'(' + re.escape(selected) + r')', text)
+      matches = re.finditer(r'('   + re.escape(selected) + r')'  , text)
 
     if backward:
       matches = reversed(list(matches))
