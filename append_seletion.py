@@ -1,4 +1,5 @@
 import sublime
+from sublime import RegionFlags
 import sublime_plugin
 import re
 
@@ -17,6 +18,22 @@ def plugin_loaded():
 
   subl_set.clear_on_change('SelectionAppend')
   subl_set.add_on_change  ('SelectionAppend', lambda: Cfg.load())
+
+
+subl_region_flag ={ # https://www.sublimetext.com/docs/api_reference.html#sublime.RegionFlags 4132 3.8
+  'NONE'                   	: RegionFlags.NONE                   	, #
+  'DRAW_EMPTY'             	: RegionFlags.DRAW_EMPTY             	, # Draw empty regions with a vertical bar. By default, they aren’t drawn at all.
+  'HIDE_ON_MINIMAP'        	: RegionFlags.HIDE_ON_MINIMAP        	, # Don’t show the regions on the minimap.
+  'DRAW_EMPTY_AS_OVERWRITE'	: RegionFlags.DRAW_EMPTY_AS_OVERWRITE	, # Draw empty regions with a horizontal bar instead of a vertical one.
+  'PERSISTENT'             	: RegionFlags.PERSISTENT             	, # Save the regions in the session.
+  'DRAW_NO_FILL'           	: RegionFlags.DRAW_NO_FILL           	, # Disable filling the regions, leaving only the outline.
+  'HIDDEN'                 	: RegionFlags.HIDDEN                 	, # Don’t draw the regions.
+  'DRAW_NO_OUTLINE'        	: RegionFlags.DRAW_NO_OUTLINE        	, # Disable drawing the outline of the regions.
+  'DRAW_SOLID_UNDERLINE'   	: RegionFlags.DRAW_SOLID_UNDERLINE   	, # Draw a solid underline below the regions.
+  'DRAW_STIPPLED_UNDERLINE'	: RegionFlags.DRAW_STIPPLED_UNDERLINE	, # Draw a stippled underline below the regions.
+  'DRAW_SQUIGGLY_UNDERLINE'	: RegionFlags.DRAW_SQUIGGLY_UNDERLINE	, # Draw a squiggly underline below the regions.
+  'NO_UNDO'                	: RegionFlags.NO_UNDO                	, #
+}
 
 selection_added = False
 
