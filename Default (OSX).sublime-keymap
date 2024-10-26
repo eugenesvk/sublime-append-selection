@@ -1,7 +1,7 @@
 [
-{"keys":[           "alt+c"	],"command":"append_seletion"	                    	                	                             	  ,"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
-{"keys":["shift+     alt+c"	],"command":"append_seletion"	,"args":{           	 "backward":true	                             	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
-{"keys":[      "ctrl+alt+c"	],"command":"append_seletion"	,"args":{"word":true	                	                             	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
-{"keys":["shift+ctrl+alt+c"	],"command":"append_seletion"	,"args":{"word":true	,"backward":true	                             	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
-{"keys":["shift+ctrl+c"    	],"command":"append_seletion"	,"args":{           	                	 "repeat_last_with_skip":true	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":[           "alt+c"	],"command":"append_seletion"	                 	         	          	  ,"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":["shift+     alt+c"	],"command":"append_seletion"	,"args":{        	 "←":true	          	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":[      "ctrl+alt+c"	],"command":"append_seletion"	,"args":{"ω":true	         	          	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":["shift+ctrl+alt+c"	],"command":"append_seletion"	,"args":{"ω":true	,"←":true	          	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":["shift+ctrl+c"    	],"command":"append_seletion"	,"args":{        	         	 "🔁↷":true	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
 ]
