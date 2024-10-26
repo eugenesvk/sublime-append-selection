@@ -80,3 +80,7 @@ User configuration file `AppendSelection.sublime-settings` accepts the following
 ### Dependencies
 
 None
+
+### Known issues
+
+- Commands do not wrap unlike the default `find_under_expand` (<kbd>⎈</kbd><kbd>d</kbd>/<kbd>⌘</kbd><kbd>d</kbd>)
