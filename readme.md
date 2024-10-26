@@ -55,12 +55,12 @@ cursors. You can also skip last cursor and go to next selection.
 
 ```json5
 {"keys":["alt+4"],"command":"append_seletion","args":{
- //↓argument            	↓default	, // comment
- "word"                 	:true   	, // select by word boundary
- "wordb"                	:true   	, // word boundary \b (selects current word)or \W (old behavior), see screenshots below for comparison
- "backward"             	:false  	, // select backwards
- "skip"                 	:false  	, // skip/move current selection (deselect it) instead of appending to it (previous selections remain)
- "repeat_last_with_skip"	:false  	, // replaces the word/wordb/backward/skip arguments with those of the last invoked command
+ //↓argument            	↓default	, //alias  	comment
+ "word"                 	:true   	, //w ω    	select by word boundary
+ "wordb"                	:true   	, //wb ωb  	word boundary \b (selects current word)or \W (old behavior), see screenshots below for comparison
+ "backward"             	:false  	, //←      	select backwards
+ "skip"                 	:false  	, //↷      	skip/move current selection (deselect it) instead of appending to it (previous selections remain)
+ "repeat_last_with_skip"	:false  	, //🔁 🔁↷ ↷🔁	replaces the word/wordb/backward/skip arguments with those of the last invoked command
 }},
 ```
 
