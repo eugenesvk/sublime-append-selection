@@ -35,6 +35,23 @@ subl_region_flag ={ # https://www.sublimetext.com/docs/api_reference.html#sublim
   'NO_UNDO'                	: RegionFlags.NO_UNDO                	, #
 }
 
+class Cfg():
+
+  @staticmethod
+  def load():
+    reg_flags_def	= RegionFlags.DRAW_EMPTY and RegionFlags.DRAW_NO_FILL  # outline only
+    if (reg_flags := subl_set.get('reg_flags')):
+      if not isinstance(reg_flags, list):
+        _log.error(f'‘reg_flags’ setting@‘{plugin_cfg_file}’ should be a ‘list’, not {type(reg_flags)} , ignoring and using defaults')
+        Cfg.reg_flags	= reg_flags_def
+      else:
+        reg_flags_parsed = RegionFlags.NONE
+        for flag in reg_flags:
+          reg_flags_parsed |= subl_region_flag.get(flag.upper(),RegionFlags.NONE)
+        Cfg.reg_flags	= reg_flags_parsed
+        _log.debug(f'parsed ‘reg_flags’ from setting@‘{plugin_cfg_file}’ as {reg_flags_parsed}')
+
+
 selection_added = False
 
 class AppendSeletion(sublime_plugin.TextCommand):
