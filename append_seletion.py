@@ -8,7 +8,7 @@ DEFAULT_LOG_LEVEL = logging.WARNING
 _log = logging.getLogger(__name__) # AppendSelection.append_seletion
 _log.setLevel(DEFAULT_LOG_LEVEL)
 
-plugin_cfg_file = 'SelectionAppend.sublime-settings'
+plugin_cfg_file = 'AppendSelection.sublime-settings'
 
 def plugin_loaded():
   global Cfg, subl_set
@@ -16,8 +16,8 @@ def plugin_loaded():
   subl_set = sublime.load_settings(plugin_cfg_file)
   Cfg.load();
 
-  subl_set.clear_on_change('SelectionAppend')
-  subl_set.add_on_change  ('SelectionAppend', lambda: Cfg.load())
+  subl_set.clear_on_change('AppendSelection')
+  subl_set.add_on_change  ('AppendSelection', lambda: Cfg.load())
 
 
 subl_region_flag ={ # https://www.sublimetext.com/docs/api_reference.html#sublime.RegionFlags 4132 3.8
