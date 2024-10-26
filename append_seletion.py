@@ -9,6 +9,7 @@ _log = logging.getLogger(__name__) # AppendSelection.append_seletion
 _log.setLevel(DEFAULT_LOG_LEVEL)
 
 plugin_cfg_file = 'AppendSelection.sublime-settings'
+plugin_reg_nm   = 'append_selection'
 
 def plugin_loaded():
   global Cfg, subl_set
@@ -106,9 +107,9 @@ class AppendSeletion(sublime_plugin.TextCommand):
       start, end = match.start(1) + shift, match.end(1) + shift
       regions.append(sublime.Region(start, end))
 
-    self.view.erase_regions('append_selection')
+    self.view.erase_regions(plugin_reg_nm)
     regFlags = Cfg.reg_flags
-    self.view.add_regions('append_selection', regions, 'string', '', regFlags)
+    self.view.add_regions  (plugin_reg_nm, regions, 'string', '', regFlags)
 
   def remove_xst_selection(self,backward):
     forward = not backward
@@ -170,4 +171,4 @@ class AppendSeletionListener(sublime_plugin.EventListener):
       selection_added = False
       return
 
-    view.erase_regions('append_selection')
+    view.erase_regions(plugin_reg_nm)
