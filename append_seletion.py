@@ -60,7 +60,7 @@ class AppendSeletion(sublime_plugin.TextCommand):
     super().__init__(view)
     self.last_word = None
 
-  def run(self, edit, word = False, wordb:bool=True, backward = False, skip = False,
+  def run(self, edit, word:bool=True, wordb:bool=True, backward = False, skip = False,
     repeat_last_with_skip = False):
 
     if repeat_last_with_skip:
