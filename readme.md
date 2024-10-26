@@ -43,13 +43,13 @@ cursors. You can also skip last cursor and go to next selection.
 
 ### Commands
 
-| Description          | Keyboard shortcuts | Command palette                       |
-|----------------------|--------------------|---------------------------------------|
-| Append next          | alt+c              | AppendSelection: append next          |
-| Append previous      | alt+shift+c        | AppendSelection: append previous      |
-| Append next word     | alt+ctrl+c         | AppendSelection: append next word     |
-| Append previous word | alt+ctrl+shift+c   | AppendSelection: append previous word |
-| Skip cursor          | ctrl+shift+c       | AppendSelection: skip last            |
+| Description          	|                	|                	|               	| Key          	| Command palette                       |
+|----------------------	|----------------	|----------------	|---------------	|--------------	|---------------------------------------|
+| Append next          	|                	|                	| <kbd>alt</kbd>	| <kbd>c</kbd> 	| AppendSelection: append next          |
+| Append previous      	|<kbd>shift</kbd>	|                	| <kbd>alt</kbd>	| <kbd>c</kbd> 	| AppendSelection: append previous      |
+| Append next word     	|                	|<kbd>ctrl</kbd> 	| <kbd>alt</kbd>	| <kbd>c</kbd> 	| AppendSelection: append next word     |
+| Append previous word 	|<kbd>shift</kbd>	|<kbd>ctrl</kbd> 	| <kbd>alt</kbd>	| <kbd>c</kbd> 	| AppendSelection: append previous word |
+| Skip cursor          	|<kbd>shift</kbd>	|<kbd>ctrl</kbd> 	|               	| <kbd>c</kbd> 	| AppendSelection: skip last            |
 
 
 ### Dependencies
