@@ -7,6 +7,7 @@
 
 # Documentation
 doc/           	export-ignore
+demo/          	export-ignore
 sample/        	export-ignore
 Contributing.md	export-ignore
 ToDo.md        	export-ignore
