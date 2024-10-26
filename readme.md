@@ -65,6 +65,7 @@ cursors. You can also skip last cursor and go to next selection.
 ```
 
 `wordb=true` <img src="./demo/append_sel_wordb.png" alt="Word boundary \b" width="48"/> vs `false` <img src="./demo/append_sel_wordW.png" alt="Word boundary \W" width="48"/> after invoking a single `append_selection` command with cursor at the beginning of line 2
+__But__ `wordb=true` can't select words with unicode symbols due to a [Sublime Text bug](https://github.com/sublimehq/sublime_text/issues/1737)
 
 ### Configure
 
