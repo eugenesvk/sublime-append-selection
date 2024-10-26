@@ -51,6 +51,26 @@ cursors. You can also skip last cursor and go to next selection.
 | Append previous word 	|<kbd>shift</kbd>	|<kbd>ctrl</kbd> 	| <kbd>alt</kbd>	| <kbd>c</kbd> 	| AppendSelection: append previous word |
 | Skip cursor          	|<kbd>shift</kbd>	|<kbd>ctrl</kbd> 	|               	| <kbd>c</kbd> 	| AppendSelection: skip last            |
 
+### Command arguments
+
+```json
+{"keys":["alt+4"],"command":"append_seletion","args":{
+ //↓argument            	↓default	, // comment
+ "word"                 	:true   	, // select by word boundary
+ "wordb"                	:true   	, // word boundary \b or \W (old behavior), see screenshots below for comparison
+ "backward"             	:false  	, // select backwards
+ "skip"                 	:false  	, // skip/move current selection (deselect it) instead of appending to it (previous selections remain)
+ "repeat_last_with_skip"	:false  	, // replaces the word/wordb/backward/skip arguments with those of the last invoked command
+}},
+```
+
+![word boundary \b][./demo/append_sel_wordb.png] vs ![word boundary \W][./demo/append_sel_wordW.png]
+
+### Configure
+
+User configuration file `AppendSelection.sublime-settings`
+
+`"reg_flags": ["DRAW_EMPTY","DRAW_NO_FILL",],` A list of v4132 [highlight flag](sublimetext.com/docs/api_reference.html#sublime.RegionFlags)
 
 ### Dependencies
 
