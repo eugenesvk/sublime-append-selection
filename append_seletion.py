@@ -59,16 +59,19 @@ class AppendSeletion(sublime_plugin.TextCommand):
   def __init__(self, view):
     super().__init__(view)
     self.last_word = None
+    self.last_wordb = None
 
   def run(self, edit, word:bool=True, wordb:bool=True, backward = False, skip = False,
     repeat_last_with_skip = False):
 
     if repeat_last_with_skip:
       word = self.last_word
+      wordb = self.last_wordb
       backward = self.last_backward
       skip = True
 
     self.last_word = word
+    self.last_wordb = wordb
     self.last_backward = backward
 
     sels = self.view.sel()
