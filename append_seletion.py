@@ -2,6 +2,10 @@ import sublime
 import sublime_plugin
 import re
 
+import logging
+DEFAULT_LOG_LEVEL = logging.WARNING
+_log = logging.getLogger(__name__) # AppendSelection.append_seletion
+_log.setLevel(DEFAULT_LOG_LEVEL)
 selection_added = False
 
 class AppendSeletion(sublime_plugin.TextCommand):
