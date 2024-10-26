@@ -30,12 +30,12 @@ class AppendSeletion(sublime_plugin.TextCommand):
       return
 
     sel, matches, shift = result
-    self._append_selection(skip, sel, matches, shift)
+    self._append_selection(skip, sel, backward, matches, shift)
 
     global selection_added
     selection_added = True
 
-  def _append_selection(self, skip, sel, matches, shift):
+  def _append_selection(self, skip, sel, backward, matches, shift):
     try:
       match = matches.__next__()
     except StopIteration:
@@ -47,7 +47,7 @@ class AppendSeletion(sublime_plugin.TextCommand):
 
     selection = sublime.Region(start, end)
     if skip:
-      self.remove_last_selection()
+      self.remove_xst_selection(backward)
 
     self.view.sel().add(selection)
 
@@ -60,12 +60,14 @@ class AppendSeletion(sublime_plugin.TextCommand):
     self.view.add_regions('append_selection', regions, 'string', '',
       sublime.DRAW_EMPTY)
 
-  def remove_last_selection(self):
+  def remove_xst_selection(self,backward):
+    forward = not backward
     sels = self.view.sel()
 
     old = []
     for index, sel in enumerate(sels):
-      if index == len(sels) - 1:
+      if (forward  and index == len(sels) - 1)\
+      or (backward and index == 0            ):
         continue
       old.append(sel)
 
