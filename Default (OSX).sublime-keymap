@@ -1,55 +1,7 @@
 [
-  {
-    "keys": ["alt+c"],
-    "command": "append_seletion",
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-    ]
-  },
-
-  {
-    "keys": ["alt+shift+c"],
-    "command": "append_seletion",
-    "args": {
-      "backward": true,
-    },
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-    ]
-  },
-
-  {
-    "keys": ["alt+ctrl+c"],
-    "command": "append_seletion",
-    "args": {
-      "word": true,
-    },
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-    ]
-  },
-
-  {
-    "keys": ["alt+ctrl+shift+c"],
-    "command": "append_seletion",
-    "args": {
-      "word": true,
-      "backward": true,
-    },
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-    ]
-  },
-
-  {
-    "keys": ["ctrl+shift+c"],
-    "command": "append_seletion",
-    "args": {
-      "repeat_last_with_skip": true,
-    },
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-    ]
-  },
-
+{"keys":[           "alt+c"	],"command":"append_seletion"	                    	                	                             	  ,"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":["shift+     alt+c"	],"command":"append_seletion"	,"args":{           	 "backward":true	                             	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":[      "ctrl+alt+c"	],"command":"append_seletion"	,"args":{"word":true	                	                             	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":["shift+ctrl+alt+c"	],"command":"append_seletion"	,"args":{"word":true	,"backward":true	                             	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
+{"keys":["shift+ctrl+c"    	],"command":"append_seletion"	,"args":{           	                	 "repeat_last_with_skip":true	,},"context":[{"key":"setting.sublime_enhanced_keybindings","operator":"equal","operand":true},]},
 ]
