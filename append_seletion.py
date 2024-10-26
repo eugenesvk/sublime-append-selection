@@ -3,6 +3,8 @@ from sublime import RegionFlags
 import sublime_plugin
 import re
 
+re_sp = re.compile(r'\s+')
+
 import logging
 DEFAULT_LOG_LEVEL = logging.WARNING
 _log = logging.getLogger(__name__) # AppendSelection.append_seletion
@@ -83,15 +85,16 @@ def alias(aliases:dict):
     return wrapper
   return decorator
 
+from typing import List
 class AppendSeletion(sublime_plugin.TextCommand):
   def __init__(self, view):
     super().__init__(view)
     self.last_word = None
     self.last_wordb = None
 
-  @alias({'word':['w','ω'],'wordb':['wb','ωb'],'backward':['←'],'skip':['↷'],'repeat_last_with_skip':['🔁','🔁↷','↷🔁']})
-  def run(self, edit, word:bool=True, wordb:bool=True, backward = False, skip = False,
-    repeat_last_with_skip = False, **kwargs):
+  @alias({'word':['w','ω'],'wordb':['wb','ωb'],'backward':['←'],'skip':['↷'],'wrap':['🗘'],'repeat_last_with_skip':['🔁','🔁↷','↷🔁']})
+  def run(self, edit, word:bool=True, wordb:bool=True, backward = False, skip = False, wrap = False,
+    repeat_last_with_skip = False, show:List[str]=["surround","animate"], **kwargs):
 
     if repeat_last_with_skip:
       word = self.last_word
@@ -113,12 +116,12 @@ class AppendSeletion(sublime_plugin.TextCommand):
       return
 
     sel, matches, shift = result
-    self._append_selection(skip, sel, backward, matches, shift)
+    self._append_selection(skip, sel, backward, matches, shift, show)
 
     global selection_added
     selection_added = True
 
-  def _append_selection(self, skip, sel, backward, matches, shift):
+  def _append_selection(self, skip, sel, backward, matches, shift, show):
     try:
       match = matches.__next__()
     except StopIteration:
@@ -133,6 +136,18 @@ class AppendSeletion(sublime_plugin.TextCommand):
       self.remove_xst_selection(backward)
 
     self.view.sel().add(selection)
+    show_args = []
+    if show: # Move viewport to show the new selection
+      if   isinstance(show,list):
+        show_args = [s.lower() if isinstance(s,str) else None for s in show]
+      elif isinstance(show,str):
+        show_args = re.split(re_sp,show.lower())
+      #             	                       	                  ≝
+      show_surrounds	= False if 'nosurround'	in show_args else True 	# show the surrounding context around the location
+      keep_to_left  	= True  if 'left'      	in show_args else False	# keep the view to the left if horizontal scrolling is possible (4075)
+      animate       	= False if 'noanimate' 	in show_args else True 	# animate scrolling (4075)
+      self.view.show(location=selection, show_surrounds=show_surrounds, keep_to_left=keep_to_left, animate=animate)
+      # location	scroll the view to this, for a Selection only the first Region is shown
 
     regions = []
     for match in matches:
