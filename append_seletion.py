@@ -60,7 +60,7 @@ class AppendSeletion(sublime_plugin.TextCommand):
     super().__init__(view)
     self.last_word = None
 
-  def run(self, edit, word = False, backward = False, skip = False,
+  def run(self, edit, word = False, wordb:bool=True, backward = False, skip = False,
     repeat_last_with_skip = False):
 
     if repeat_last_with_skip:
@@ -75,7 +75,7 @@ class AppendSeletion(sublime_plugin.TextCommand):
     if len(sels) == 0:
       return
 
-    result = self._get_next_selection(sels, word, backward)
+    result = self._get_next_selection(sels, word, wordb, backward)
 
     if result == None:
       return
@@ -126,7 +126,7 @@ class AppendSeletion(sublime_plugin.TextCommand):
     for sel in old:
       self.view.sel().add(sel)
 
-  def _get_next_selection(self, sels, word, backward):
+  def _get_next_selection(self, sels, word, wordb, backward):
     if backward:
       sel = sels[ 0]
     else:
@@ -148,10 +148,8 @@ class AppendSeletion(sublime_plugin.TextCommand):
 
     text = self.view.substr(region)
 
-    if word:
-      matches = re.finditer(fr'\W({re.escape(selected)})\W', text)
-    else:
-      matches = re.finditer(  fr'({re.escape(selected)})'  , text)
+    re_w = (r'\b' if wordb else r'\W') if word else r'' # \b = word boundary, selects cur word
+    matches = re.finditer(fr'{re_w}({re.escape(selected)}){re_w}', text)
 
     if backward:
       matches = reversed(list(matches))
