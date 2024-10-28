@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file
 
-[unreleased]: https://github.com/eugenesvk/sublime-append-selection/compare/st4-0.5.0...HEAD
+[unreleased]: https://github.com/shagabutdinov/sublime-append-selection/compare/st4-0.5.0...HEAD
 ## [Unreleased]
 <!-- - __Added__ -->
   <!-- + :sparkles:  -->
@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file
   <!-- + :lock:  -->
   <!-- vulnerabilities -->
 
-[st4-0.5.0]: https://github.com/eugenesvk/sublime-append-selection/releases/tag/st4-0.5.0
+[st4-0.5.0]: https://github.com/shagabutdinov/sublime-append-selection/releases/tag/st4-0.5.0
 ## [st4-0.5.0]
 - __Added__
   + ✨ jump to the latest selected word instead of silently going offscreen (with extra options to show surrounding context/animate/keep left)
@@ -33,6 +33,3 @@ All notable changes to this project will be documented in this file
   +  highlight style to outline only
 - __Fixed__
   + 🐞 skipping while going in reverse direction moves selection [src](https://github.com/shagabutdinov/sublime-append-selection/issues/1)
-
-[0.0.0]: https://github.com/eugenesvk/sublime-append-selection/releases/tag/0.0.0
-## [0.0.0]
